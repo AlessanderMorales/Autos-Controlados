@@ -17,12 +17,19 @@ btnEjecutar.addEventListener("click", () => {
         
         
         const auto = new Auto(x, y, orientacion, maxX, maxY);
-        
-      
+        const posicionInicial = `Posicion Inicial: ${auto.getPosicion()}`;
+        const comandosEjecutados = `Comandos Ejecutados: ${comandosStr}`;
+
+        // Ejecuta los comandos
         auto.ejecutarComandos(comandosStr);
-        
-      
-        resultadoDiv.innerHTML = `Posición Final: ${auto.getPosicion()}`;
+        const posicionFinal = `Posición Final: ${auto.getPosicion()}`;
+
+        // Actualiza el contenido del div resultado
+        resultadoDiv.innerHTML = `
+            <p>${posicionInicial}</p>
+            <p>${comandosEjecutados}</p>
+            <p>${posicionFinal}</p>
+        `;
     } else {
         resultadoDiv.innerHTML = "Por favor, ingrese comandos válidos.";
     }
